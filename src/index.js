@@ -1,14 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import { StateProvider } from './js/app/store';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <StateProvider>
-    <App />
-  </StateProvider>,
+  <App />,
   document.getElementById('root')
 );
 

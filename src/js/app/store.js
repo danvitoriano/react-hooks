@@ -1,22 +1,30 @@
-import React, { createContext, useReducer, useState } from 'react';
+import React, { useReducer, createContext } from "react"
+export const FinanceContext = createContext()
 
-const initialState = [];
-const store = createContext(initialState);
-const { Provider } = store;
+const initialState = {
+    finances: []
+}
 
-const StateProvider = ({ children }) => {
-    const [finances, setFinance] = useState([])
-    const [state, dispatch] = useReducer((state, action) => {
-        switch (action.type) {
-            case 'set finance':
-                setFinance(state => [...state, action.values]);
-                return finances;
-            default:
-                throw new Error();
-        };
-    }, initialState);
+const reducer = (state, action) => {
+    switch (action.type) {
+        case "SET_IMPORTS":
+            return {
+                finances: [...state.finances, ...action.payload]
+            }
+        case "ADD_FINANCE":
+            return {
+                finances: [...state.finances, action.payload]
+            }
+        default:
+            throw new Error()
+    }
+}
 
-    return <Provider value={{ state, dispatch }}>{children}</Provider>;
-};
-
-export { store, StateProvider }
+export const FinanceContextProvider = (props) => {
+    const [state, dispatch] = useReducer(reducer, initialState)
+    return (
+        <FinanceContext.Provider value={[state, dispatch]}>
+            {props.children}
+        </FinanceContext.Provider>
+    )
+}
