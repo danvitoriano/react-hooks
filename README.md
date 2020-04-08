@@ -6,6 +6,9 @@ You can submit your finances via form and add them to a table list.
 
 There is an import feature that request a Node API hosted at Heroku and responds with imported finances to list.
 
+![Screen Shot 2020-04-08 at 1 26 49 PM](https://user-images.githubusercontent.com/3236750/78809449-528cb180-799d-11ea-89ff-cdbafbc888d6.png)
+
+
 **LIVE DEMO:**
 
 https://finances-api-74aed.firebaseapp.com/index.html
