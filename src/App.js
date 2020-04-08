@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const App = () => {
+import FinancesList from './js/app/views/FinancesList'
+import FinanceForm from './js/app/views/FinanceForm';
+
+export default () => {
 
   const [count, setCount] = useState(0)
 
@@ -10,6 +13,9 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <h1>My Finances</h1>
+        <FinanceForm />
+        <FinancesList />
         <p>
           you clicked {count} times
         </p>
@@ -20,5 +26,3 @@ const App = () => {
     </div>
   );
 }
-
-export default App;
