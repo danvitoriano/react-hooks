@@ -14,8 +14,8 @@ export default () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>My Finances</h1>
-        <FinanceForm />
-        <FinancesList />
+        <FinanceForm count={count} />
+        <FinancesList count={count} />
         <p>
           you clicked {count} times
         </p>

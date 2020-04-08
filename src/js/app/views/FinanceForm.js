@@ -1,16 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { store } from '../store'
 import useForm from "../hooks/useForm"
 
 export default () => {
     const [{ values, loading }, handleChange, handleSubmit] = useForm()
-    const enviarContato = () => console.log(values)
+
+    const globalState = useContext(store);
+    const { dispatch } = globalState;
+
+    const financeValues = () => dispatch({ type: 'set finance', values })
 
     return (
         <div id="finance-form">
-            <form onSubmit={handleSubmit(enviarContato)}>
+            <form onSubmit={handleSubmit(financeValues)}>
                 <div className="form-group">
                     <label htmlFor="item">Item</label>
-                    <input onChange={handleChange} type="text" name="item" className="form-control" placeholder="Item" required />
+                    <input onChange={handleChange} type="text" name="item" className="form-control" placeholder="Item" required autoFocus />
                 </div>
                 <div className="form-group">
                     <label htmlFor="data">Data</label>

@@ -1,29 +1,37 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { store } from '../store'
 
 export default () => {
 
-    const [count, setCount] = useState(0)
+    const globalState = useContext(store);
+    const { state } = globalState;
 
     return (
         <div id="finance-list">
             <table>
                 <thead>
                     <tr>
-                        <th scope="col">Item</th>
-                        <th scope="col">Data</th>
-                        <th scope="col">#</th>
-                        <th scope="col">$</th>
+                        <th scope="col">item</th>
+                        <th scope="col">data</th>
+                        <th scope="col">quantidade</th>
+                        <th scope="col">valor</th>
                         <th scope="col">=</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>item</td>
-                        <td>data</td>
-                        <td>2</td>
-                        <td>2.5</td>
-                        <td>5</td>
-                    </tr>
+                    {
+                        state.map(
+                            (f, i) =>
+                                <tr key={i}>
+                                    <td>{f.item}</td>
+                                    <td>{f.data}</td>
+                                    <td>{f.quantidade}</td>
+                                    <td>{f.valor}</td>
+                                    <td>=</td>
+                                </tr>
+
+                        )
+                    }
                 </tbody>
                 <tfoot>
                     <tr>
