@@ -1,12 +1,18 @@
 # MY FINANCES
 
-Small web app made with React Hooks, Node.js and Create React App.
+Simples and small web app made with React Hooks, Node.js and Create React App.
 
 You can submit your finances via form and add them to a table list. 
 
 There is an import feature that request a Node API hosted at Heroku and responds with imported finances to list.
 
+**LIVE DEMO:**
 
+https://finances-api-74aed.firebaseapp.com/index.html
+
+**NODE.JS API:**
+
+https://evening-badlands-20922.herokuapp.com/financas/semana
 
 ## Create React App
 
